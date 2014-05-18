@@ -6,6 +6,41 @@ use ZF\Rest\AbstractResourceListener;
 
 class SlidesResource extends AbstractResourceListener
 {
+    // mock data
+    private $data = array(
+        '1' => array(
+            'id' => 1,
+            'title' => 'Slide 1',
+            'bullets' => array(
+                'bullet 1',
+                'bullet 2',
+                'bullet 3'
+            ),
+            'next' => '/slides/2'
+        ),
+        '2' => array(
+            'id' => 2,
+            'title' => 'Slide 2',
+            'bullets' => array(
+                'bullet 1',
+                'bullet 2',
+                'bullet 3'
+            ),
+            'previous' => '/slides/1',
+            'next' => '/slides/3'
+        ),
+        '3' => array(
+            'id' => 3,
+            'title' => 'Slide 3',
+            'bullets' => array(
+                'bullet 1',
+                'bullet 2',
+                'bullet 3'
+            ),
+            'previous' => '/slides/2'
+        )
+    );
+
     /**
      * Create a resource
      *
@@ -47,7 +82,11 @@ class SlidesResource extends AbstractResourceListener
      */
     public function fetch($id)
     {
-        return new ApiProblem(405, 'The GET method has not been defined for individual resources');
+        if (array_key_exists($id, $this->data)){
+            return $this->data[$id];
+        }else{
+            return new ApiProblem(404, 'Not Found');
+        }
     }
 
     /**
@@ -58,7 +97,7 @@ class SlidesResource extends AbstractResourceListener
      */
     public function fetchAll($params = array())
     {
-        return new ApiProblem(405, 'The GET method has not been defined for collections');
+        return $this->data;
     }
 
     /**
