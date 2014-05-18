@@ -2,9 +2,10 @@
 <html>
 <head>
 
-	<!-- load angular, ngResource -->
+	<!-- load angular, ngResource, ngRoute -->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="app.js"></script>
 
 </head>
@@ -12,12 +13,8 @@
 <!-- apply our angular app -->
 <body ng-app="demoApp">
 
-  <!-- define a controller for this div -->
-	<div ng-controller="summaryController">
-    <h1>Demo Summary</h1>
-    <!-- show each slide title -->
-    <h2 ng-repeat="slide in slideCollection._embedded.slides">{{slide.title}}</h2>
-  </div>
+  <!-- inject our views using ng-view -->
+  <div ng-view></div>
 
 </body>
 </html>

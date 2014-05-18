@@ -1,0 +1,7 @@
+<h1>Demo Summary</h1>
+<!-- show each slide title with a link -->
+<!-- with need the # so that we go to a route within angular -->
+<a ng-repeat="slide in slideCollection._embedded.slides"
+    href="#/slides/{{slide.id}}">
+  <h2>{{slide.title}}<h2>
+</a>
