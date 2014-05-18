@@ -1,0 +1,8 @@
+{
+  "name": "apigility-angular-demo",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.2.*",
+    "angular-resource": "1.2.*"
+  }
+}

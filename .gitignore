@@ -9,6 +9,7 @@ nbproject
 composer.lock
 vendor/
 public/vendor/
+public/bower_components
 config/development.config.php
 config/autoload/local.php
 config/autoload/*.local.php
