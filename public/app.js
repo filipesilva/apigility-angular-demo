@@ -1,5 +1,5 @@
 // when we declare the app itself, we also list the dependencies
-var demoApp = angular.module('demoApp', ['ngResource', 'ngRoute']);
+var demoApp = angular.module('demoApp', ['ngResource', 'ngRoute', 'ngAnimate']);
 
 // here we are configuring the routes for the app
 demoApp.config(function($routeProvider) {
@@ -22,6 +22,8 @@ demoApp.controller('summaryController', function($scope, $resource) {
   var Slides = $resource('/slides/:slideId');
   // this get is called without a variable, and thus performs get at /slides
   $scope.slideCollection = Slides.get();
+  // this variable is used to control the css of th page
+  $scope.pageClass = 'page-summary';
 });
 
 // this controller requires routeParams to access the url variable
@@ -29,4 +31,5 @@ demoApp.controller('slideController', function($scope, $resource, $routeParams) 
   var Slides = $resource('/slides/:slideId');
   // this time we're doing a get with a parameter, the slideId from the url
   $scope.slide = Slides.get({slideId:$routeParams.slideId});
+  $scope.pageClass = 'page-slide';
 });

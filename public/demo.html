@@ -2,10 +2,15 @@
 <html>
 <head>
 
-	<!-- load angular, ngResource, ngRoute -->
+	<!-- CSS -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- load angular, ngResource, ngRoute, ngAnimate -->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="app.js"></script>
 
 </head>
@@ -14,7 +19,8 @@
 <body ng-app="demoApp">
 
   <!-- inject our views using ng-view -->
-  <div ng-view></div>
+	<!-- each angular controller applies a different class here -->
+  <div class="page {{ pageClass }}" ng-view></div>
 
 </body>
 </html>
